@@ -1,0 +1,8 @@
+.env
+venv/
+__pycache__/
+*.pyc
+
+# Ignore generated workspace files and backups
+workspace/*
+!workspace/calculator.py
