@@ -1,4 +1,5 @@
 from agent.tools import run_python_file
+from agent.tools import read_file, write_file, edit_file
 
 print("\n--- Successful execution ---")
 print(run_python_file("test_run.py"))
@@ -13,6 +14,16 @@ print("\n--- Path security ---")
 print(run_python_file("../main.py"))
 
 
+
+
+print("\n--- READ PATH SECURITY ---")
+print(read_file("../.env"))
+
+print("\n--- WRITE PATH SECURITY ---")
+print(write_file("../unauthorized.py", "print('Hacked')"))
+
+print("\n--- EDIT PATH SECURITY ---")
+print(edit_file("../main.py", "print('Modified')"))
 
 
 """from agent.tools import write_file, read_file, list_workspace_files
