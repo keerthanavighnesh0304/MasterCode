@@ -146,26 +146,24 @@ def advance_agent(generator, decision=None):
 
         st.session_state.agent_generator = None
         st.session_state.pending_approval = None
-
     except Exception as error:
 
-            st.session_state.messages.append({
-                "role": "assistant",
-                "content": (
-                    "⚠️ **Unable to complete your request.**\n\n"
-                    "MasterCode encountered an error while communicating "
-                    "with Gemini or processing your request.\n\n"
-                    "Please try again in a moment."
-                )
-            })
+        st.session_state.messages.append({
+            "role": "assistant",
+            "content": (
+                "⚠️ **Unable to complete your request.**\n\n"
+                "MasterCode encountered an error while communicating "
+                "with Gemini or processing your request.\n\n"
+                "Please try again in a moment."
+            )
+        })
 
-            # Reset agent state so the user can try again
-            st.session_state.agent_generator = None
-            st.session_state.pending_approval = None
+        # Reset agent state so the user can try again
+        st.session_state.agent_generator = None
+        st.session_state.pending_approval = None
 
-            # Keep the technical error in the terminal for debugging
-            print(f"MasterCode Error: {type(error).__name__}: {error}")
-
+        # Keep the technical error in the terminal for debugging
+        print(f"MasterCode Error: {type(error).__name__}: {error}")
 
 # --------------------------------------------------
 # DISPLAY CHAT HISTORY
